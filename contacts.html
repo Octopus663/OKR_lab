@@ -2,18 +2,94 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    
     <title>Контакти</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        .iframe-container {
+            position: relative;
+            width: 70%;
+            height: 400px;
+            margin: 20px auto;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .contact-info {
+            text-align: center;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        .contact-info strong {
+            color: #4CAF50;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Контакти</h1>
-    <p><strong>Адреса:</strong> вул. Центральна, 10, Київ</p>
-    <p><strong>Телефон:</strong> +380 44 123 45 67</p>
-    <p><strong>Email:</strong> info@zatishok-hotel.com</p>
-    <nav>
-        <a href="index.html">Головна</a> | 
-        <a href="rooms.html">Номери</a> | 
-        <a href="services.html">Послуги</a>
-    </nav>
+
+<h1>Контакти</h1>
+<p>Зв'яжіться з нами за телефонами або відвідайте наш офіс на фізичній адресі.</p>
+
+<!-- Контейнер для фрейму -->
+<div class="iframe-container">
+    <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.8902489382158!2d2.2922923156749726!3d48.85884407928708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efa154a6edb%3A0xdb18c6d08f6a7e8a!2z0J7Qv9GC0LXRgdC60LDRjyDQsiDQodC00LXQttC90L3Qvg!5e0!3m2!1suk!2sua!4v1698765432109!5m2!1suk!2sua"
+            loading="lazy"
+            allowfullscreen
+            title="Google карта готелю">
+    </iframe>
+</div>
+
+<div class="contact-info">
+    <p>
+        <strong>Адреса офісу:</strong> вул. Затишна, 15, м. Київ, Україна<br>
+        <strong>Телефон:</strong> +380 44 123 45 67<br>
+        <strong>Email:</strong> contact@hotel.com
+    </p>
+</div>
+
+<div class="navigation">
+    <a href="index.html">Головна</a> |
+    <a href="rooms.html">Номери</a> |
+    <a href="services.html">Послуги</a>
+</div>
+
 </body>
 </html>

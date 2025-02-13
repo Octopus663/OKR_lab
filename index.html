@@ -4,15 +4,94 @@
     <meta charset="UTF-8">
     <meta name="author" content="Andrii Kunda">
     <title>Готель "Затишок"</title>
+    <style>
+        body {
+            background-image: url('foto/1_2382.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            color: #007BFF;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        img {
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        small {
+            font-size: 0.8em;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
     <h1>Ласкаво просимо до готелю "Затишок"!</h1>
-    <p>Готель "Затишок" – це ідеальне місце для відпочинку та роботи. Ми пропонуємо комфортні номери, широкий спектр послуг і затишну атмосферу.</p>
+    <p>Наш готель пропонує своїм гостям комфорт і якісний сервіс.</p>
+
+    <p>
+        <a href="foto/img_7.png" target="_blank">
+            <img src="foto/img_7.png" alt="Готель Затишок" width="500" height="300">
+        </a>
+        <br>
+        <small>Натисніть на зображення, щоб переглянути у повному розмірі</small>
+    </p>
+
+    <h2>Особливості готелю:</h2>
+    <ol type="I">
+        <li>Чудове розташування</li>
+        <li>Різноманіття номерів</li>
+        <li>
+            Послуги:
+            <ul type="circle">
+                <li>Басейн</li>
+                <li>SPA</li>
+                <li>Wi-Fi</li>
+            </ul>
+        </li>
+        <li>Доступні ціни</li>
+    </ol>
+
+    <h2>Наша команда:</h2>
+    <dl>
+        <dt><b>Адміністратор</b></dt>
+        <dd>- Зустріне ваших гостей на рецепції</dd>
+        <dt><b>Кухар</b></dt>
+        <dd>- Приготує найсмачніші страви</dd>
+        <dt><b>Менеджер</b></dt>
+        <dd>- Відповідає за якість сервісу</dd>
+    </dl>
+
+    <h2>Контакти:</h2>
+    <p>
+        За докладною інформацією телефонуйте:
+        <b><font color="yellow">+380 44 123 45 67</font></b>
+    </p>
+
     <nav>
-        <a href="rooms.html">Номери</a> | 
-        <a href="services.html">Послуги</a> | 
+        <a href="rooms.html">Номери</a> |
+        <a href="services.html">Послуги</a> |
         <a href="contacts.html">Контакти</a>
     </nav>
+</div>
 </body>
 </html>
-

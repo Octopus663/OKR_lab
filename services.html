@@ -2,21 +2,138 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-
     <title>Послуги</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #007BFF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.1em;
+        }
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 12px;
+            text-align: center;
+        }
+        .left-align {
+            text-align: left;
+        }
+        .right-align {
+            text-align: right;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+        }
+        colgroup col:nth-child(1) {
+            background-color: #f9f9f9;
+        }
+        colgroup col:nth-child(2) {
+            background-color: #e9f7ef;
+        }
+        caption {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Наші послуги</h1>
-    <ul>
-        <li>Безкоштовний Wi-Fi</li>
-        <li>Сніданки у ресторані</li>
-        <li>Басейн і SPA</li>
-        <li>Конференц-зали для бізнес-зустрічей</li>
-    </ul>
-    <nav>
-        <a href="index.html">Головна</a> | 
-        <a href="rooms.html">Номери</a> | 
-        <a href="contacts.html">Контакти</a>
-    </nav>
+
+<h1>Послуги</h1>
+<p>Детальний огляд наших послуг із характеристиками та цінами.</p>
+
+<!-- Складна таблиця -->
+<table cellspacing="5" cellpadding="10">
+    <!-- Групуємо колонки -->
+    <colgroup>
+        <col>
+        <col>
+        <col span="2" style="background-color: #f7f7f7;">
+    </colgroup>
+
+    <!-- Заголовок таблиці -->
+    <caption>Тарифікація послуг</caption>
+
+    <!-- Шапка таблиці -->
+    <tr class="header">
+        <th rowspan="2">Назва послуги</th>
+        <th colspan="3">Тариф</th>
+    </tr>
+    <tr class="header">
+        <th>Періодична</th>
+        <th>Одноразова</th>
+        <th>Коментар</th>
+    </tr>
+
+    <!-- Перший рядок -->
+    <tr>
+        <td rowspan="2">Прибирання</td>
+        <td class="left-align">300 грн/день</td>
+        <td class="right-align">500 грн</td>
+        <td rowspan="2">Доступно лише в стандартних і покращених номерах</td>
+    </tr>
+    <tr>
+        <td class="left-align">250 грн/день (для довготривалих гостей)</td>
+        <td class="right-align">400 грн</td>
+    </tr>
+
+    <!-- Другий рядок -->
+    <tr>
+        <td>Користування басейном</td>
+        <td colspan="2">Безкоштовно</td>
+        <td>Доступно для всіх гостей готелю</td>
+    </tr>
+
+    <!-- Третій рядок -->
+    <tr>
+        <td rowspan="2">Сніданок</td>
+        <td class="left-align">150 грн/день</td>
+        <td class="right-align">350 грн</td>
+        <td rowspan="2">Можна замовити при бронюванні</td>
+    </tr>
+    <tr>
+        <td class="left-align">200 грн (з доставкою в номер)</td>
+        <td class="right-align">400 грн</td>
+    </tr>
+</table>
+
+<div class="navigation">
+    <a href="index.html">Головна</a> |
+    <a href="rooms.html">Номери</a> |
+    <a href="contacts.html">Контакти</a>
+</div>
+
 </body>
 </html>
