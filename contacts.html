@@ -3,69 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Контакти</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #007BFF;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        p {
-            text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-        }
-        .iframe-container {
-            position: relative;
-            width: 70%;
-            height: 400px;
-            margin: 20px auto;
-            border: 2px solid #4CAF50;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .contact-info {
-            text-align: center;
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-        }
-        .contact-info strong {
-            color: #4CAF50;
-        }
-        .navigation {
-            text-align: center;
-            margin-top: 20px;
-        }
-        a {
-            color: #007BFF;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="style/styles.css">
+
 </head>
 <body>
 
+<style>
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 25%; /* Ще більше зменшення висоти */
+        height: 0;
+        overflow: hidden;
+        max-width: 800px; /* Обмеження ширини */
+        margin: 0 auto; /* Центрування */
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+</style>
 <h1>Контакти</h1>
-<p>Зв'яжіться з нами за телефонами або відвідайте наш офіс на фізичній адресі.</p>
+<p style="color: #333; font-size: 1.2em; font-style: italic;">Зв'яжіться з нами за телефонами або відвідайте наш офіс на фізичній адресі.</p>
 
 <!-- Контейнер для фрейму -->
 <div class="iframe-container">
@@ -85,11 +49,11 @@
     </p>
 </div>
 
-<div class="navigation">
-    <a href="index.html">Головна</a> |
-    <a href="rooms.html">Номери</a> |
-    <a href="services.html">Послуги</a>
-</div>
+    <div class="navigation">
+        <a href="index.html">Головна</a> |
+        <a href="rooms.html">Номери</a> |
+        <a href="services.html">Послуги</a>
+    </div>
 
 </body>
 </html>
