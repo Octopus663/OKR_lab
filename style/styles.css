@@ -222,3 +222,105 @@ caption {
         font-size: 0.9em;
     }
 }
+
+/* Стилізація карточок номерів */
+.room-description h4 {
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 5px;
+}
+
+/* Перший параграф після заголовка номера */
+.room-description h4 + p {
+    font-style: italic;
+    color: #555;
+}
+
+/* Списки в описі номерів */
+.room-description ul {
+    background-color: transparent;
+    border: none;
+    padding-left: 20px;
+}
+
+/* Прямі нащадки списку в описі номерів */
+.room-description ul > li {
+    padding: 5px 0;
+    color: var(--text-dark);
+    position: relative;
+}
+
+/* Додаємо іконку маркера для елементів списку */
+.room-description ul > li::before {
+    color: var(--secondary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Стилізація таблиці номерів */
+table tr:nth-child(even) {
+    background-color: var(--background-light);
+}
+
+table tr:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Спеціальна стилізація першого елемента в таблиці */
+table tr:first-child {
+    border-top: 3px solid var(--primary-color);
+}
+
+/* Стилізація навігації */
+.navigation a + a {
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 15px;
+}
+
+.navigation > a:hover {
+    color: #FFC107;
+    transform: translateY(-2px);
+}
+
+/* Спеціальна стилізація для контактної інформації */
+.contact-info > p {
+    margin: 10px 0;
+}
+
+.contact-info strong + span {
+    color: var(--primary-color);
+    margin-left: 5px;
+}
+
+/* Стилізація зображень після заголовків */
+h2 ~ img {
+    border: 3px solid var(--primary-color);
+}
+
+/* Стилізація для головної сторінки */
+.home-body .container > h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.home-body .container > p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* Адаптивні стилі для мобільних пристроїв */
+@media (max-width: 768px) {
+    .room-description h4 + p {
+        font-size: 0.95em;
+    }
+
+    .navigation a + a {
+        margin-top: 10px;
+        display: block;
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.3);
+        padding-top: 10px;
+    }
+}
