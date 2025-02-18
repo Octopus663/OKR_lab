@@ -324,3 +324,78 @@ h2 ~ img {
         padding-top: 10px;
     }
 }
+/* Щоб уникнути зсувів, використовуйте clearfix для потоку */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.floating-info {
+    float: left; /* Зробимо блоки плаваючими */
+    width: 45%; /* Займають 45% ширини кожний */
+    margin: 10px; /* Відступи між блоками */
+    padding: 15px;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border-radius: 100px;
+    box-shadow: var(--shadow);
+    font-size: 1em;
+    text-align: center;
+    border: 1px solid var(--primary-color);
+}
+
+.floating-info p {
+    margin: 0; /* Забираємо зайвий відступ */
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .floating-info {
+        width: 100%; /* На маленьких екранах блок займає всю ширину */
+        float: none; /* Забираємо float */
+    }
+}
+
+.highlight {
+    color: var(--secondary-color);
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 0 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a:link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:visited {
+    color: var(--secondary-color);
+    opacity: 0.7;
+}
+a:active {
+    color: #FF5733;
+    font-weight: bold;
+    text-decoration: underline;
+}
+ul > li:first-child {
+    font-style: italic;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+table tr:first-child {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: bold;
+}
+h1::before {
+    content: "🛎️ ";
+    color: var(--primary-color);
+}
+h1::after {
+    content: " ✅";
+    color: var(--secondary-color);
+}
+
