@@ -22,12 +22,37 @@
             opacity: 0.5;
             z-index: -1;
         }
+        .notification {
+            padding: 10px;
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            margin: 10px 0;
+            color: #0c5460;
+        }
+        #demo-container {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin-top: 20px;
+        }
     </style>
+    <script src="scripts/script.js"></script>
+    <script>
+        function greetVisitor() {
+            alert("Ласкаво просимо до готелю 'Затишок'!");
+        }
+        function showRoomInfo() {
+            let roomType = prompt("Який тип номера вас цікавить?", "Стандарт");
+            if (roomType) {
+                confirm("Показати детальну інформацію про " + roomType + "?");
+            }
+        }
+    </script>
 </head>
 <body>
 <div id="main-container">
     <div class="background-overlay"></div>
-    <h1>Ласкаво просимо до готелю "Затишок"!</h1>
+    <h1 id="main-heading">Ласкаво просимо до готелю "Затишок"!</h1>
     <p>Наш готель пропонує своїм гостям <span class="highlight">
         комфорт</span> і якісний сервіс.</p>
 
@@ -39,16 +64,16 @@
         <small>Натисніть на зображення, щоб переглянути у повному розмірі</small>
     </p>
 
-    <h2> <font face="Tahoma">Особливості готелю:</font></h2>
+    <h2><font face="Tahoma">Особливості готелю:</font></h2>
     <ol type="I">
         <li>Чудове розташування</li>
         <li>Різноманіття номерів</li>
         <li>
             Послуги:
             <ul type="circle">
-                <li>Басейн</li>
-                <li>SPA</li>
-                <li>Wi-Fi</li>
+                <li><a href="services.html#pool">Басейн</a></li>
+                <li><a href="services.html#spa">SPA</a></li>
+                <li><a href="services.html#wifi">Wi-Fi</a></li>
             </ul>
         </li>
         <li>Доступні ціни</li>
@@ -70,11 +95,39 @@
         <b><font color="007BFFFF">+380 44 123 45 67</font></b>
     </p>
 
-    <nav style="text-align: center;">
+    <div id="demo-container">
+        <h3>Демонстрація JavaScript функцій</h3>
+        <button onclick="greetVisitor()">Вітання</button>
+        <button onclick="showRoomInfo()">Інформація про номери</button>
+        <button onclick="dialogWithUser()">Діалог з користувачем</button>
+        <button onclick="developerInfo('Кунда', 'Андрій')">Інформація про розробника</button>
+        <button onclick="compareUserStrings()">Порівняння рядків</button>
+        <button onclick="changeBackgroundTemporarily()">Змінити фон на 30 секунд</button>
+        <button onclick="redirectToPage('rooms.html')">Перейти до номерів</button>
+        <button onclick="demonstrateDOMMethods()">Демонстрація DOM-методів</button>
+    </div>
+
+    <nav style="text-align: center; margin-top: 20px;">
         <a href="rooms.html">Номери</a> |
         <a href="services.html">Послуги</a> |
         <a href="contacts.html">Контакти</a>
     </nav>
 </div>
+
+<script>
+    // Скрипт, який виконується при завантаженні сторінки
+    document.addEventListener('DOMContentLoaded', function() {
+        // Створюємо елемент для демонстрації createElement та append
+        let welcomeElement = document.createElement('div');
+        welcomeElement.className = 'notification';
+        welcomeElement.textContent = 'Дякуємо, що відвідали наш сайт!';
+
+        // Додаємо елемент в кінець контейнера
+        document.getElementById('main-container').append(welcomeElement);
+
+        // Можна використовувати для тестування функцій при завантаженні
+        console.log("Сторінка завантажена і готова до взаємодії!");
+    });
+</script>
 </body>
 </html>
