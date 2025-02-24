@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <title>Послуги</title>
     <link rel="stylesheet" href="style/styles.css">
+    <script src="scripts/script.js"></script>
+    <script>
+        function serviceInfo(serviceName) {
+            alert("Інформація про послугу: " + serviceName);
+        }
+    </script>
 </head>
 <body>
 
-<h1>Послуги</h1>
+<h1 id="main-heading">Послуги</h1>
 <p class="main-paragraph">Детальний огляд наших послуг із характеристиками та цінами.</p>
 
 <!-- Складна таблиця -->
@@ -47,7 +53,7 @@
 
     <!-- Другий рядок -->
     <tr>
-        <td>Користування басейном</td>
+        <td id="pool">Користування басейном</td>
         <td colspan="2">Безкоштовно</td>
         <td>Доступно для всіх гостей готелю</td>
     </tr>
@@ -63,13 +69,58 @@
         <td class="left-align">200 грн (з доставкою в номер)</td>
         <td class="right-align">400 грн</td>
     </tr>
+
+    <!-- Додаємо ще один рядок для SPA -->
+    <tr>
+        <td id="spa">SPA процедури</td>
+        <td class="left-align">500 грн/година</td>
+        <td class="right-align">1200 грн</td>
+        <td>Попередній запис обов'язковий</td>
+    </tr>
+
+    <!-- Додаємо Wi-Fi рядок -->
+    <tr>
+        <td id="wifi">Wi-Fi</td>
+        <td colspan="2">Безкоштовно</td>
+        <td>Високошвидкісний інтернет у всіх зонах готелю</td>
+    </tr>
 </table>
+
+<div id="demo-container" style="margin: 20px 0; padding: 15px; border: 1px dashed #ccc;">
+    <h3>Демонстрація JavaScript</h3>
+    <button onclick="serviceInfo('Басейн')">Інформація про басейн</button>
+    <button onclick="serviceInfo('SPA')">Інформація про SPA</button>
+    <button onclick="serviceInfo('Wi-Fi')">Інформація про Wi-Fi</button>
+    <button onclick="dialogWithUser()">Діалог з користувачем</button>
+    <button onclick="compareStrings('Прибирання номерів', 'Сніданок')">Порівняти послуги</button>
+    <button onclick="changeBackgroundTemporarily()">Змінити фон на 30 секунд</button>
+</div>
 
 <div class="navigation">
     <a href="index.html">Головна</a> |
     <a href="rooms.html">Номери</a> |
     <a href="contacts.html">Контакти</a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Створюємо новий елемент для демонстрації DOM-маніпуляцій
+        let infoBox = document.createElement('div');
+        infoBox.style.backgroundColor = '#e9f7ef';
+        infoBox.style.padding = '10px';
+        infoBox.style.borderRadius = '5px';
+        infoBox.style.margin = '15px 0';
+
+        // Створюємо текстовий вузол
+        let infoText = document.createTextNode('Скористайтеся нашими послугами для максимального комфорту під час перебування в готелі!');
+
+        // Додаємо текст до елемента
+        infoBox.appendChild(infoText);
+
+        // Вставляємо елемент після таблиці
+        document.querySelector('table').after(infoBox);
+    });
+</script>
 
 </body>
 </html>
