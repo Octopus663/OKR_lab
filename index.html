@@ -9,6 +9,7 @@
         body {
             background-color: #f0f8ff;
         }
+
         .background-overlay {
             position: fixed !important;
             top: 0;
@@ -22,6 +23,7 @@
             opacity: 0.5;
             z-index: -1;
         }
+
         .notification {
             padding: 10px;
             background-color: #d1ecf1;
@@ -30,6 +32,7 @@
             margin: 10px 0;
             color: #0c5460;
         }
+
         #demo-container {
             border: 1px dashed #ccc;
             padding: 15px;
@@ -41,6 +44,7 @@
         function greetVisitor() {
             alert("Ласкаво просимо до готелю 'Затишок'!");
         }
+
         function showRoomInfo() {
             let roomType = prompt("Який тип номера вас цікавить?", "Стандарт");
             if (roomType) {
@@ -105,6 +109,8 @@
         <button onclick="changeBackgroundTemporarily()">Змінити фон на 30 секунд</button>
         <button onclick="redirectToPage('rooms.html')">Перейти до номерів</button>
         <button onclick="demonstrateDOMMethods()">Демонстрація DOM-методів</button>
+        <button id="btn">Click</button>
+        <button id="btn2">Event</button>
     </div>
 
     <nav style="text-align: center; margin-top: 20px;">
@@ -113,10 +119,24 @@
         <a href="contacts.html">Контакти</a>
     </nav>
 </div>
-
+<div class="event-demo" style="margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
+    <h3>Демонстрація подій миші</h3>
+    <div
+            id="hover-box"
+            style="width: 200px; height: 100px; background-color: #e0e0e0; text-align: center; line-height: 100px; margin: 10px 0;"
+            onmouseover="this.style.backgroundColor='#f8d7da'; this.textContent='Курсор наведено!';"
+            onmouseout="this.style.backgroundColor='#e0e0e0'; this.textContent='Наведіть курсор';">
+        Наведіть курсор
+    </div>
+</div>
+<script src="scripts/event.js"></script>
+<script src="scripts/menu.js"></script>
 <script>
+    const click = document.getElementById('btn');
+    click.onclick = () => alert("click more");
+
     // Скрипт, який виконується при завантаженні сторінки
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Створюємо елемент для демонстрації createElement та append
         let welcomeElement = document.createElement('div');
         welcomeElement.className = 'notification';
@@ -128,6 +148,12 @@
         // Можна використовувати для тестування функцій при завантаженні
         console.log("Сторінка завантажена і готова до взаємодії!");
     });
+
+    let btn = document.getElementById("btn2");
+    const handler1 = () => console.log("1");
+    const handler2 = () => console.log("2");
+    btn.addEventListener("click", handler1);
+    btn.addEventListener("click", handler2);
 </script>
 </body>
 </html>
