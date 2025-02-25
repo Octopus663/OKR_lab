@@ -184,8 +184,12 @@ function demonstrateDOMMethods() {
 
     // Демонстрація document.write
     // Увага: document.write очищає поточну сторінку, тому краще використовувати в обмежених випадках
-    let demonstrateDocWrite = false; // Змініть на true, щоб побачити дію
+    let demonstrateDocWrite = true; // Змініть на true, щоб побачити дію
     if (demonstrateDocWrite) {
         document.write("<h3>Сторінку перезаписано за допомогою document.write</h3>");
     }
+
 }
+demonstrateDOMMethods();
+console.log("Файл script.js підключено!");
+
