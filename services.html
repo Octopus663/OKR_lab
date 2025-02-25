@@ -5,6 +5,8 @@
     <title>Послуги</title>
     <link rel="stylesheet" href="style/styles.css">
     <script src="scripts/script.js"></script>
+    <script src="scripts/mouse.js"></script>
+
     <script>
         function serviceInfo(serviceName) {
             alert("Інформація про послугу: " + serviceName);
@@ -15,7 +17,8 @@
 
 <h1 id="main-heading">Послуги</h1>
 <p class="main-paragraph">Детальний огляд наших послуг із характеристиками та цінами.</p>
-
+<div id="box" draggable="true">Перетягнути блок</div>
+<div id="dropzone">Видалити блок</div>
 <!-- Складна таблиця -->
 <table cellspacing="5" cellpadding="10">
     <!-- Групуємо колонки -->
