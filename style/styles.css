@@ -399,3 +399,27 @@ h1::after {
     color: var(--secondary-color);
 }
 
+#box {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    position: absolute;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+#dropzone {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    border: 2px dashed #aaa;
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    line-height: 200px;
+    font-size: 18px;
+}
