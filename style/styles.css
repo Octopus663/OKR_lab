@@ -413,7 +413,7 @@ h1::after {
 }
 
 #dropzone {
-    width: 100px;
+    width: 200px;
     height: 200px;
     background-color: #ddd;
     border: 2px dashed #aaa;
