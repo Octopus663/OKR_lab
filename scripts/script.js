@@ -116,79 +116,78 @@ function redirectToPage(url) {
 }
 
 // Функція для демонстрації DOM методів
-function demonstrateDOMMethods() {
-    // Метод getElementById
-    let mainHeading = document.getElementById("main-heading");
-    if (mainHeading) {
-        mainHeading.style.color = "#007bff";
+// JavaScript
+// 1. Зміна кольору заголовка
+function changeHeadingColor() {
+    const heading = document.getElementById("main-heading");
+    if (heading) {
+        heading.style.color = "#fffb00";
     }
+}
 
-    // Метод querySelectorAll
-    let paragraphs = document.querySelectorAll("p");
-    for (let i = 0; i < paragraphs.length; i++) {
-        paragraphs[i].style.lineHeight = "1.5";
+// 2. Налаштування інтервалу абзаців
+function adjustParagraphs() {
+    document.querySelectorAll("p").forEach(p => {
+        p.style.lineHeight = "1.5";
+    });
+}
+
+// 3. Вивід властивостей вузла
+function logNodeProperties() {
+    const heading = document.getElementById("main-heading");
+    if (heading) {
+        console.log("innerHTML:", heading.innerHTML);
+        console.log("outerHTML:", heading.outerHTML);
+        console.log("textContent:", heading.textContent);
     }
+}
 
-    // Використання властивостей DOM-вузла
-    if (mainHeading) {
-        // innerHTML
-        console.log("innerHTML: " + mainHeading.innerHTML);
-
-        // outerHTML
-        console.log("outerHTML: " + mainHeading.outerHTML);
-
-        // textContent
-        console.log("textContent: " + mainHeading.textContent);
-    }
-
-    // Створюємо новий елемент за допомогою createElement
-    let newElement = document.createElement("div");
+// 4. Створення сповіщення
+function createNotification() {
+    const newElement = document.createElement("div");
     newElement.className = "notification";
-
-    // Створюємо текстовий вузол за допомогою createTextNode
-    let textNode = document.createTextNode("Ця інформація була додана динамічно через JavaScript!");
-
-    // Додаємо текстовий вузол до елемента
-    newElement.appendChild(textNode);
-
-    // Додаємо елемент до DOM за допомогою append
+    newElement.textContent = "Ця інформація була додана динамічно через JavaScript!";
     document.body.append(newElement);
+}
 
-    // Створюємо ще один елемент для демонстрації інших методів
-    let anotherElement = document.createElement("p");
-    anotherElement.textContent = "Цей абзац буде видалено через 5 секунд.";
+// 5. Додавання тимчасового повідомлення
+function addTemporaryMessage() {
+    const tempElement = document.createElement("p");
+    tempElement.textContent = "Цей абзац буде видалено через 5 секунд.";
+    document.body.prepend(tempElement);
 
-    // Використовуємо prepend для додавання на початок body
-    document.body.prepend(anotherElement);
-
-    // Демонстрація методу after
-    if (mainHeading) {
-        let infoElement = document.createElement("p");
-        infoElement.textContent = "Цей абзац додано після заголовка.";
-        mainHeading.after(infoElement);
-    }
-
-    // Демонстрація методу replaceWith
-    setTimeout(function() {
-        anotherElement.replaceWith(document.createTextNode("Заміна виконана!"));
-    }, 3000);
-
-    // Демонстрація методу remove
-    setTimeout(function() {
-        let replacedNode = document.body.querySelector("body > :first-child");
-        if (replacedNode && replacedNode.textContent === "Заміна виконана!") {
-            replacedNode.remove();
-            alert("Елемент видалено!");
-        }
+    setTimeout(() => {
+        tempElement.remove();
+        alert("Елемент видалено!");
     }, 5000);
+}
 
-    // Демонстрація document.write
-    // Увага: document.write очищає поточну сторінку, тому краще використовувати в обмежених випадках
-    let demonstrateDocWrite = true; // Змініть на true, щоб побачити дію
-    if (demonstrateDocWrite) {
+// 6. Вставка після заголовка
+function insertAfterHeading() {
+    const heading = document.getElementById("main-heading");
+    if (heading) {
+        const infoElement = document.createElement("p");
+        infoElement.textContent = "Цей абзац додано після заголовка.";
+        heading.after(infoElement);
+    }
+}
+
+// 7. Заміна повідомлення
+function replaceMessage() {
+    const tempElement = document.createElement("p");
+    tempElement.textContent = "Цей абзац буде замінено через 3 секунди.";
+    document.body.prepend(tempElement);
+
+    setTimeout(() => {
+        tempElement.replaceWith(document.createTextNode("Заміна виконана!"));
+    }, 3000);
+}
+
+// 8. Небезпечний запис (використовуйте з обережністю!)
+function dangerousWrite() {
+    if(confirm("Ця дія перезапише всю сторінку! Продовжити?")) {
         document.write("<h3>Сторінку перезаписано за допомогою document.write</h3>");
     }
-
 }
 demonstrateDOMMethods();
 console.log("Файл script.js підключено!");

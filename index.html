@@ -39,7 +39,7 @@
     <script src="scripts/script.js"></script>
     <script>
         function greetVisitor() {
-            alert("Ласкаво просимо до готелю 'Затишок'!");
+            alert("Готель 'Затишок' один з найкращих готелів в Україні!");
         }
         function showRoomInfo() {
             let roomType = prompt("Який тип номера вас цікавить?", "Стандарт");
@@ -96,15 +96,22 @@
     </p>
 
     <div id="demo-container">
-        <h3>Демонстрація JavaScript функцій</h3>
-        <button onclick="greetVisitor()">Вітання</button>
+        <h3>Доступні функції на нашому сайті:</h3>
+        <button onclick="greetVisitor()">Про нас</button>
         <button onclick="showRoomInfo()">Інформація про номери</button>
         <button onclick="dialogWithUser()">Діалог з користувачем</button>
         <button onclick="developerInfo('Кунда', 'Андрій')">Інформація про розробника</button>
         <button onclick="compareUserStrings()">Порівняння рядків</button>
         <button onclick="changeBackgroundTemporarily()">Змінити фон на 30 секунд</button>
         <button onclick="redirectToPage('rooms.html')">Перейти до номерів</button>
-        <button onclick="demonstrateDOMMethods()">Демонстрація DOM-методів</button>
+        <button onclick="changeHeadingColor()">1. Змінити колір заголовка</button>
+        <button onclick="adjustParagraphs()">2. Налаштувати інтервал абзаців</button>
+        <button onclick="logNodeProperties()">3. Вивести властивості в консоль</button>
+        <button onclick="createNotification()">4. Додати сповіщення</button>
+        <button onclick="addTemporaryMessage()">5. Додати тимчасове повідомлення</button>
+        <button onclick="insertAfterHeading()">6. Вставити абзац після заголовка</button>
+        <button onclick="replaceMessage()">7. Замінити повідомлення (через 3с)</button>
+        <button onclick="dangerousWrite()">8. Небезпечний запис (перезавантажить сторінку!)</button>
     </div>
 
     <nav style="text-align: center; margin-top: 20px;">
