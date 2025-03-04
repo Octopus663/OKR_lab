@@ -40,7 +40,7 @@ function createBehaviorMenu() {
 
     // Додаємо заголовок меню
     let menuHeading = document.createElement("h3");
-    menuHeading.textContent = "Меню готелю (з єдиним обробником)";
+    menuHeading.textContent = "Меню готелю ";
     menuContainer.appendChild(menuHeading);
 
     // Створюємо кнопки меню з data-атрибутами
