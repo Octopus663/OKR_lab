@@ -189,3 +189,44 @@ function demonstrateDOMMethods() {
         document.write("<h3>Сторінку перезаписано за допомогою document.write</h3>");
     }
 }
+
+
+
+// Підсвічування елементів списку при кліку
+document.getElementById('itemList').onclick = function(event) {
+    // Видаляємо підсвічування з усіх елементів
+    Array.from(this.children).forEach(item => item.classList.remove('highlight'));
+
+    // Підсвічуємо клікнутий елемент
+    if (event.target.tagName === 'LI') {
+        event.target.classList.add('highlight');
+    }
+};
+
+// Обробник для меню
+document.getElementById('menu').onclick = function(event) {
+    const action = event.target.dataset.action;
+    const list = document.getElementById('itemList');
+
+    switch (action) {
+        case 'add':
+            const newItem = document.createElement('li');
+            newItem.textContent = `Елемент ${list.children.length + 1}`;
+            list.appendChild(newItem);
+            break;
+
+        case 'remove':
+            const highlightedItem = list.querySelector('.highlight');
+            if (highlightedItem) {
+                list.removeChild(highlightedItem);
+            }
+            break;
+
+        case 'clear':
+            list.innerHTML = '';
+            break;
+
+        default:
+            console.log('Невідома дія');
+    }
+};

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Допомога | Grand Palace Hotel</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .header {
+            background-color: #1a3c6e;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #2c5792;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: #e8f1fb;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            color: #1a3c6e;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .draggable-card {
+            width: 250px;
+            height: 150px;
+            background-color: #ffffff;
+            position: absolute;
+            cursor: grab;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            top: 50px;
+            left: 50px;
+            z-index: 100;
+        }
+
+        .draggable-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .draggable-card p {
+            margin: 5px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        #dropzone {
+            width: 300px;
+            height: 200px;
+            background-color: #e8f1fb;
+            border: 2px dashed #1a3c6e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+
+        .faq-item {
+            padding: 15px;
+            border: 1px solid #eee;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .highlighted {
+            background-color: #e8f1fb;
+            border-left: 4px solid #1a3c6e;
+        }
+
+        .button {
+            background-color: #1a3c6e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2c5792;
+        }
+
+        .footer {
+            background-color: #1a3c6e;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .draggable-card {
+                width: 200px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1 class="logo">Grand Palace Hotel</h1>
+</div>
+
+<div class="navbar">
+    <a href="#">Головна</a>
+    <a href="#">Номери</a>
+    <a href="#">Послуги</a>
+    <a href="#">Ресторан</a>
+    <a href="#">Бронювання</a>
+    <a href="#" style="text-decoration: underline;">Допомога</a>
+    <a href="#">Контакти</a>
+</div>
+
+<div class="container">
+    <div class="hero">
+        <h1>Центр допомоги</h1>
+        <p>Знайдіть відповіді на всі ваші запитання щодо проживання та послуг у Grand Palace Hotel</p>
+    </div>
+
+    <div class="section">
+        <h2>Інтерактивний помічник</h2>
+        <p>Перетягніть картку з питанням у спеціальну зону, щоб отримати миттєву відповідь.</p>
+
+        <div id="box" class="draggable-card" draggable="true">
+            <h3>Безкоштовний Wi-Fi</h3>
+            <p>Як підключитися до мережі Wi-Fi у готелі?</p>
+        </div>
+
+        <div id="dropzone">
+            Перетягніть сюди картку для отримання відповіді
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Часті запитання</h2>
+        <p>Натисніть на запитання, щоб підсвітити його та прочитати відповідь.</p>
+
+        <ul id="itemsList" style="list-style-type: none; padding: 0;">
+            <li class="faq-item">
+                <h3>Який час заїзду та виїзду з готелю?</h3>
+                <p>Час заїзду - 14:00, час виїзду - 12:00. За запитом та наявності номерів можливий ранній заїзд або пізній виїзд.</p>
+            </li>
+            <li class="faq-item">
+                <h3>Чи надає готель трансфер з/до аеропорту?</h3>
+                <p>Так, готель пропонує трансфер з/до аеропорту за додаткову плату. Будь ласка, повідомте нас про деталі вашого прибуття заздалегідь.</p>
+            </li>
+            <li class="faq-item">
+                <h3>Чи є в готелі бассейн або спа-центр?</h3>
+                <p>Grand Palace Hotel пропонує критий басейн, сауну та повноцінний спа-центр з різноманітними процедурами.</p>
+            </li>
+            <li class="faq-item">
+                <h3>Чи дозволено проживання з домашніми тваринами?</h3>
+                <p>Ми приймаємо гостей з маленькими домашніми тваринами (до 10 кг) за додаткову плату. Просимо повідомити нас заздалегідь.</p>
+            </li>
+            <li class="faq-item">
+                <h3>Які способи оплати приймає готель?</h3>
+                <p>Ми приймаємо основні кредитні картки (Visa, MasterCard, American Express), готівку та банківські перекази.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Потрібно більше інформації?</h2>
+        <p>Виберіть одну з дій нижче:</p>
+
+        <div id="menu">
+            <button class="button" data-action="add">Додати поширене запитання</button>
+            <button class="button" data-action="remove">Видалити останнє запитання</button>
+            <button class="button" data-action="highlight">Підсвітити всі важливі питання</button>
+        </div>
+
+        <div id="boxAttribute" style="display: none" onclick="handleAttributeClick(event)"></div>
+        <div id="boxProperty" style="display: none"></div>
+        <div id="boxObject" style="display: none"></div>
+        <button id="removeHandler" style="display: none">Видалити обробник</button>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Grand Palace Hotel. Всі права захищені.</p>
+    <p>Адреса: вул. Готельна, 123, Київ, Україна</p>
+    <p>Телефон: +380 44 123 4567 | Email: info@grandpalacehotel.com</p>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // ---------- ЧАСТИНА 1: Різні способи призначення обробників подій ----------
+        const box = document.getElementById("box");
+        const dropzone = document.getElementById("dropzone");
+        const removeHandlerBtn = document.getElementById("removeHandler");
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        // 1. Призначення через атрибут (вже реалізовано в HTML)
+        function handleAttributeClick(event) {
+            alert("Звертайтеся до адміністратора готелю за додатковою інформацією!");
+        }
+
+        // Робимо функцію доступною глобально
+        window.handleAttributeClick = handleAttributeClick;
+
+        // 2. Призначення через властивість
+        const boxProperty = document.getElementById("boxProperty");
+        boxProperty.onclick = function(event) {
+            boxProperty.style.backgroundColor = "yellow";
+            alert("Відповідь була надіслана на вашу електронну пошту!");
+        };
+
+        // 3. Призначення кількох обробників одній події
+        function firstHandler(event) {
+            console.log("Відкриваємо повну інформацію про питання");
+        }
+
+        function secondHandler(event) {
+            console.log("Зберігаємо статистику відвідувань розділу допомоги");
+        }
+
+        box.addEventListener("click", firstHandler);
+        box.addEventListener("click", secondHandler);
+
+        // 4. Призначення об'єкта як обробника та використання handleEvent
+        const handlerObject = {
+            handleEvent: function(event) {
+                console.log("Перевіряємо статус гостя...");
+                console.log("Елемент:", event.currentTarget);
+            }
+        };
+
+        const boxObject = document.getElementById("boxObject");
+        boxObject.addEventListener("mouseover", handlerObject);
+
+        // 5. Видалення обробника
+        removeHandlerBtn.addEventListener("click", function() {
+            boxObject.removeEventListener("mouseover", handlerObject);
+            boxObject.style.backgroundColor = "#dddddd";
+            boxObject.textContent = "Функція допомоги відключена";
+            alert("Служба підтримки тимчасово недоступна");
+        });
+
+        // Dragging functionality for the card
+        box.addEventListener("mousedown", function (event) {
+            isDragging = true;
+            offsetX = event.clientX - box.getBoundingClientRect().left;
+            offsetY = event.clientY - box.getBoundingClientRect().top;
+            box.style.cursor = "grabbing";
+        });
+
+        document.addEventListener("mousemove", function (event) {
+            if (isDragging) {
+                box.style.left = (event.clientX - offsetX) + "px";
+                box.style.top = (event.clientY - offsetY) + "px";
+            }
+        });
+
+        document.addEventListener("mouseup", function () {
+            isDragging = false;
+            box.style.cursor = "grab";
+        });
+
+        // Drag & Drop API
+        box.addEventListener("dragstart", function (event) {
+            event.dataTransfer.setData("text/plain", "WiFi question");
+        });
+
+        dropzone.addEventListener("dragover", function (event) {
+            event.preventDefault();
+            dropzone.style.backgroundColor = "#bfd7f2";
+        });
+
+        dropzone.addEventListener("dragleave", function () {
+            dropzone.style.backgroundColor = "#e8f1fb";
+        });
+
+        dropzone.addEventListener("drop", function (event) {
+            event.preventDefault();
+            dropzone.style.backgroundColor = "#e8f1fb";
+            dropzone.innerHTML = "<h3>Відповідь:</h3><p>Для підключення до Wi-Fi в готелі виберіть мережу 'GrandPalace_Guest' і введіть пароль із вашої карти гостя. Якщо у вас виникли труднощі, зверніться на рецепцію.</p>";
+        });
+
+        // ---------- ЧАСТИНА 2: Робота зі списком та меню ----------
+
+        // 1. Робота зі списком і підсвічування елементів
+        const list = document.getElementById("itemsList");
+
+        // Один обробник для всього списку (делегування подій)
+        list.addEventListener("click", function(event) {
+            // Перевіряємо, чи клікнуто на елемент або його дочірні елементи
+            let targetItem = event.target;
+
+            // Знаходимо батьківський елемент li
+            while (targetItem && targetItem !== list) {
+                if (targetItem.tagName === "LI") {
+                    // Спочатку знімаємо підсвічування з усіх елементів
+                    const items = list.querySelectorAll("li");
+                    items.forEach(item => item.classList.remove("highlighted"));
+
+                    // Підсвічуємо клікнутий елемент
+                    targetItem.classList.add("highlighted");
+                    break;
+                }
+                targetItem = targetItem.parentElement;
+            }
+        });
+
+        // 2. Створення меню з прийомом проектування "Поведінка"
+        const menu = document.getElementById("menu");
+
+        // Один обробник для всього меню
+        menu.addEventListener("click", function(event) {
+            // Перевіряємо, чи клікнуто на кнопку
+            if (event.target.tagName === "BUTTON") {
+                // Отримуємо значення атрибута data-action
+                const action = event.target.dataset.action;
+
+                // Виконуємо відповідну функцію залежно від значення data-action
+                if (action === "add") {
+                    addFAQ();
+                } else if (action === "remove") {
+                    removeFAQ();
+                } else if (action === "highlight") {
+                    highlightAllFAQs();
+                }
+            }
+        });
+
+        // Функції для кнопок меню
+        function addFAQ() {
+            const faqs = [
+                {
+                    question: "Чи є в номерах міні-бар?",
+                    answer: "Так, у всіх номерах нашого готелю є міні-бар з широким вибором напоїв та закусок. Вміст міні-бару оплачується додатково."
+                },
+                {
+                    question: "О котрій годині подається сніданок?",
+                    answer: "Сніданок у ресторані готелю подається з 7:00 до 10:30 в будні дні та з 7:30 до 11:00 у вихідні."
+                },
+                {
+                    question: "Чи є в готелі парковка?",
+                    answer: "Готель пропонує підземну парковку для гостей за додаткову плату. Місце на парковці краще бронювати заздалегідь."
+                }
+            ];
+
+            // Вибираємо випадкове питання з масиву
+            const randomFAQ = faqs[Math.floor(Math.random() * faqs.length)];
+
+            const newItem = document.createElement("li");
+            newItem.className = "faq-item";
+            newItem.innerHTML = `<h3>${randomFAQ.question}</h3><p>${randomFAQ.answer}</p>`;
+            list.appendChild(newItem);
+        }
+
+        function removeFAQ() {
+            const items = list.querySelectorAll("li");
+            if (items.length > 0) {
+                list.removeChild(items[items.length - 1]);
+            }
+        }
+
+        function highlightAllFAQs() {
+            const items = list.querySelectorAll("li");
+            items.forEach(item => item.classList.add("highlighted"));
+        }
+    });
+</script>
+</body>
+</html>

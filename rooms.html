@@ -93,6 +93,32 @@
     <a href="services.html">Послуги</a> |
     <a href="contacts.html">Контакти</a>
 </div>
+<script>
+    function initListHighlighting() {
+        let lists = document.querySelectorAll("ul, ol");
 
+        lists.forEach(list => {
+            list.onclick = function(event) {
+                if (event.target.tagName === "LI") {
+                    // Знімаємо стилі з усіх елементів списку
+                    Array.from(this.children).forEach(item => {
+                        item.style.backgroundColor = "";
+                        item.style.fontWeight = "normal";
+                    });
+
+                    // Застосовуємо стилі до клікнутого елемента
+                    event.target.style.backgroundColor = "#d5046f";
+                    event.target.style.fontWeight = "bold";
+
+                    console.log(`Вибрано: ${event.target.textContent}`);
+                }
+            };
+        });
+    }
+
+    // Ініціалізуємо при завантаженні сторінки
+    window.onload = initListHighlighting;
+</script>
 </body>
+
 </html>
