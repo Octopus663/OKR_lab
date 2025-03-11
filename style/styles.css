@@ -399,18 +399,32 @@ h1::after {
     color: var(--secondary-color);
 }
 
+/* Основні стилі */
 #box {
     width: 150px;
-    height: 150px;
-    background-color: lightgray;
-    position: absolute;
+    height: 50px;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 50px;
     cursor: grab;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
+    border: 2px solid #007bff;
+    user-select: none;
 }
+
+#dropzone {
+    width: 200px;
+    height: 70px;
+    background-color: lightgray;
+    text-align: center;
+    line-height: 70px;
+    border: 2px dashed gray;
+    margin-top: 20px;
+}
+
+.highlight {
+    background-color: yellow !important;
+}
+
 
 #dropzone {
     width: 200px;

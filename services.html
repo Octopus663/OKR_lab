@@ -6,19 +6,63 @@
     <link rel="stylesheet" href="style/styles.css">
     <script src="scripts/script.js"></script>
     <script src="scripts/mouse.js"></script>
+    <style>
+        .highlight {
+            background-color: #ffeb3b;
+            transition: background-color 0.3s;
+        }
 
+        #box {
+            width: 250px;
+            height: 200px;
+            padding: 20px;
+            background: #4CAF50;
+            color: white;
+            cursor: move;
+            position: absolute;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #dropzone {
+            width: 250px;
+            height: 200px;
+            background: #ff5722;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dragging {
+            opacity: 0.7;
+            border: 2px dashed #000;
+        }
+    </style>
     <script>
         function serviceInfo(serviceName) {
             alert("Інформація про послугу: " + serviceName);
         }
     </script>
+
 </head>
 <body>
 
 <h1 id="main-heading">Послуги</h1>
 <p class="main-paragraph">Детальний огляд наших послуг із характеристиками та цінами.</p>
-<div id="box" draggable="true">Перетягнути блок</div>
-<div id="dropzone">Видалити блок</div>
+<div id="box" draggable="true">
+    <strong>Спеціальна пропозиція!</strong><br>
+    Знижка 20% на всі номери при бронюванні через наш сайт. Обмежена кількість!
+</div>
+<div id="dropzone">Перетягніть сюди, щоб видалити рекламу</div>
+
 <!-- Складна таблиця -->
 <table cellspacing="5" cellpadding="10">
     <!-- Групуємо колонки -->
@@ -106,7 +150,75 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+
+    // Завдання 1: Ефекти при наведенні миші
+    document.addEventListener('DOMContentLoaded', function () {
+        // Обробка таблиці
+        const tableRows = document.querySelectorAll('tr');
+
+        tableRows.forEach(row => {
+            row.addEventListener('mouseover', function (e) {
+                if (e.target.tagName === 'TD' || e.target.tagName === 'TH') {
+                    e.target.parentNode.classList.add('highlight');
+                }
+            });
+
+            row.addEventListener('mouseout', function (e) {
+                if (e.relatedTarget && !e.currentTarget.contains(e.relatedTarget)) {
+                    e.currentTarget.classList.remove('highlight');
+                }
+            });
+        });
+
+        // Завдання 2: Перетягування елемента
+        const draggable = document.getElementById('box');
+        const dropzone = document.getElementById('dropzone');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+
+        draggable.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', drag);
+        document.addEventListener('mouseup', endDrag);
+
+        function startDrag(e) {
+            isDragging = true;
+            draggable.classList.add('dragging');
+            startX = e.clientX;
+            startY = e.clientY;
+            initialX = draggable.offsetLeft;
+            initialY = draggable.offsetTop;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                e.preventDefault();
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                draggable.style.left = `${initialX + dx}px`;
+                draggable.style.top = `${initialY + dy}px`;
+            }
+        }
+
+        function endDrag(e) {
+            isDragging = false;
+            draggable.classList.remove('dragging');
+
+            // Перевірка скидання в dropzone
+            const dropRect = dropzone.getBoundingClientRect();
+            if (e.clientX >= dropRect.left && e.clientX <= dropRect.right &&
+                e.clientY >= dropRect.top && e.clientY <= dropRect.bottom) {
+                draggable.style.display = 'none';
+                dropzone.textContent = 'Блок видалено!';
+                setTimeout(() => {
+                    draggable.style.display = 'block';
+                    dropzone.textContent = 'Видалити блок';
+                }, 2000);
+            }
+        }
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
         // Створюємо новий елемент для демонстрації DOM-маніпуляцій
         let infoBox = document.createElement('div');
         infoBox.style.backgroundColor = '#e9f7ef';

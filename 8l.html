@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Готелі</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <style>
+        .hotel {
+            width: 200px;
+            height: 150px;
+            margin: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+            line-height: 150px;
+            border: 2px solid #ccc;
+            cursor: pointer;
+        }
+
+        .hotel:hover {
+            background-color: #d0eaff;
+        }
+
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc00;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            cursor: move;
+        }
+
+        #dropArea {
+            width: 300px;
+            height: 300px;
+            margin-top: 50px;
+            border: 2px dashed #ccc;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hotel" id="hotel1">Готель 1</div>
+<div class="hotel" id="hotel2">Готель 2</div>
+
+<div class="draggable" id="dragItem" draggable="true">Перетягни мене</div>
+
+<div id="dropArea"></div>
+
+<script>
+    // Події mouseover та mouseout для зміни стилю елементів
+    const hotels = document.querySelectorAll('.hotel');
+
+    hotels.forEach(hotel => {
+        hotel.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = '#b3e0ff'; // Змінюємо стиль при наведенні
+        });
+
+        hotel.addEventListener('mouseout', (e) => {
+            e.target.style.backgroundColor = ''; // Повертаємо стиль назад при виведенні
+        });
+    });
+
+    // Перетягування елементів
+    const draggable = document.getElementById('dragItem');
+    const dropArea = document.getElementById('dropArea');
+
+    // Обробка події dragstart (коли перетягувати починається)
+    draggable.addEventListener('dragstart', (e) => {
+        // Зберігаємо позиції елемента при старті перетягування
+        e.dataTransfer.setData('text', e.target.id);
+    });
+
+    // Обробка події dragover (потрібно дозволити перетягування)
+    dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault(); // Дозволяємо перетягування
+    });
+
+    // Обробка події drop (коли елемент скидається в зону)
+    dropArea.addEventListener('drop', (e) => {
+        e.preventDefault(); // Забороняємо стандартну поведінку
+
+        // Отримуємо ID перетягнутого елемента
+        const draggedItemId = e.dataTransfer.getData('text');
+        const draggedItem = document.getElementById(draggedItemId);
+
+        // Встановлюємо нові координати для елемента
+        const rect = dropArea.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left - draggedItem.offsetWidth / 2;
+        const offsetY = e.clientY - rect.top - draggedItem.offsetHeight / 2;
+
+        // Переміщаємо елемент в нову позицію
+        draggedItem.style.position = 'absolute';
+        draggedItem.style.left = offsetX + 'px';
+        draggedItem.style.top = offsetY + 'px';
+
+        // Додаємо елемент в зону
+        dropArea.appendChild(draggedItem);
+    });
+
+</script>
+</body>
+</html>
